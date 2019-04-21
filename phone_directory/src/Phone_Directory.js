@@ -15,6 +15,17 @@ class Phone_Directory extends React.Component{
       ]
     }
   }
+  deletehandler=(subscriberId)=>{
+    let subscriberList=this.state.subscriberList;
+    let subscriberIndex=0;
+    subscriberList.forEach((subscriber,Index)=>{
+      if(subscriber.id==subscriberId)
+      subscriberIndex=Index;
+    },this)
+    let newSubscriberList=subscriberList;
+    newSubscriberList.splice(subscriberIndex,1);
+    this.setState({subscriberList:newSubscriberList});
+  }
   addSubscriber=(newSubscriber)=>{
     let subscriberList=this.state.subscriberList;
     if(subscriberList.length>0)
@@ -24,13 +35,12 @@ class Phone_Directory extends React.Component{
     }
     subscriberList.push(newSubscriber);
     this.setState({subscriberList:subscriberList});
-    console.log(this.state.subscriberList)
   }
   render(){
     return(
       <Router>
             <div className="main-container">
-            <Route excat path='/' render={(props)=> <Showsubscriber {...props} subscriberList={this.state.subscriberList}/>}/>
+            <Route excat path='/' render={(props)=> <Showsubscriber {...props} subscriberList={this.state.subscriberList} deletehandler={this.deletehandler}/>}/>
             <Route excat path='/add' render={({history},props)=> <AddSubsriber {...props} history={history} addSubscriber={this.addSubscriber}/>}/>
             </div>
     </Router>
