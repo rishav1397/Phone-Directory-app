@@ -1,0 +1,9 @@
+.header{
+  text-align: center;
+  padding: 20px;
+  background: rgb(49, 50, 61);
+  color: white;
+  font-family:fantasy serif;
+  font-size: 25px;
+  text-transform: uppercase;
+}
