@@ -3,6 +3,7 @@ import {Fragment} from 'react';
 import logo from './logo.svg';
 import './showsubscriber.css';
 import Header from './Header';
+import {Link} from 'react-router-dom';
 class App extends Component {
 
   deleteHandler(message){
@@ -25,7 +26,7 @@ class App extends Component {
       <div className="div1">
       <Header heading="Phone Directory"/>
        <div className="div2">
-       <button className="custom-btn add-btn">Add</button>
+       <Link to="/add"><button className="custom-btn add-btn">Add</button></Link>
        <div className="grid-container heading-container">
          <span className="grid-item name-heading">Name</span>
          <span className="grid-item phone-heading">Phone</span>
